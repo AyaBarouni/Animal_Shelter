@@ -1,0 +1,9 @@
+# Données des animaux du refuge
+# Format: id|type|name|age|arrivalDate|adopted|field1|field2|vaccinations|treatments|lastCheckup|notes
+1|Dog|Max|3|2026-01-19|false|Labrador|true|Rage~2026-02-18;Parvovirus~2026-02-18|Antiparasitaire~2026-02-18;Antibiotique pour infection~2026-02-18|2026-02-18|Aucune note
+2|Dog|Bella|2|2026-02-03|false|Golden Retriever|false|||2026-02-18|Aucune note
+3|Cat|Mimi|1|2026-02-08|false|Noir|true|Typhus~2026-02-18;Leucose~2026-02-18|Vaccin contre la leucose~2026-02-18|2026-02-18|Aucune note
+4|Cat|Felix|5|2026-01-04|false|Gris|false|||2026-02-18|Aucune note
+5|Bird|Tweety|1|2026-02-13|false|25.5|Canari|HÃ©patite~2026-02-18|Radiographie des ailes~2026-02-18|2026-02-18|Aucune note
+7|Dog|sqd|23|2026-02-18|false|dq|true|||2026-02-18|Aucune note
+8|Dog|max|1|2026-02-18|false|huskey|true|||2026-02-18|Aucune note

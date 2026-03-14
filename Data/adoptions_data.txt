@@ -1,0 +1,2 @@
+# Données des adoptions du refuge
+# Format: id|animalId|adopterName|adopterEmail|adopterPhone|adopterAddress|adoptionDate|approvalStatus|rejectionReason

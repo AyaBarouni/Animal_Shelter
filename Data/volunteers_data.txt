@@ -1,0 +1,4 @@
+# Données des bénévoles du refuge
+# Format: id|name|email|phone|hoursWorked|isActive|schedules|tasks
+1|Jean Dupont|jean@email.com|0612345678|0|true|Lundi 9h-12h|Nourrir les animaux
+2|Marie Martin|marie@email.com|0698765432|0|true|Mercredi 14h-18h|Promenade des chiens
