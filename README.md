@@ -1,51 +1,51 @@
-# Système de gestion d'un refuge animalier — Java
+# Animal Shelter Management System — Java
 
-Projet scolaire réalisé dans le cadre du cours **Java Programming (CEWP MOD4-GRA)** à Concordia University (Montréal, 2026).
-
----
-
-## Contexte
-
-Ce projet a été développé pour appliquer concrètement les concepts de la programmation orientée objet en Java, enseignés module par module tout au long du cours. L'application simule la gestion complète d'un refuge animalier : enregistrement des animaux, suivi médical, gestion des adoptions et des bénévoles, recherche et tri.
+Academic project completed as part of the **Java Programming (CEWP MOD4-GRA)** course at Concordia University (Montreal, 2026).
 
 ---
 
-## Principe technique
+## Context
 
-Le projet repose sur une hiérarchie de classes abstraites et concrètes : `Animal` (abstraite) est étendue par `Dog`, `Cat` et `Bird`. Chaque sous-classe implémente sa propre version de `afficherDetails()` : c'est le polymorphisme en action. `Animal` implémente également l'interface `Adoptable`, qui définit le contrat `adopt()` / `returnToShelter()` et lève une `ShelterException` personnalisée en cas d'opération invalide.
-
-Le suivi médical repose sur la composition : chaque animal *possède* un `MedicalRecord`, qui calcule récursivement le coût total des soins. La recherche et le tri sont délégués à `SearchUtils` (linéaire et binaire) et `SortUtils` (bulles, sélection, insertion).
+This project was developed to apply object-oriented programming concepts in Java, taught module by module throughout the course. The application simulates the full management of an animal shelter: registering animals, tracking medical records, managing adoptions and volunteers, searching and sorting.
 
 ---
 
-## Fichiers clés
+## Technical overview
 
-| Fichier | Rôle |
+The project is built around a hierarchy of abstract and concrete classes: `Animal` (abstract) is extended by `Dog`, `Cat` and `Bird`. Each subclass implements its own version of `displayDetails()` - this is polymorphism in action. `Animal` also implements the `Adoptable` interface, which defines the contract `adopt()` / `returnToShelter()` and throws a custom `ShelterException` when an invalid operation is attempted.
+
+Medical tracking relies on composition: each animal *has* a `MedicalRecord`, which recursively calculates the total cost of care. Search and sort logic is handled by `SearchUtils` (linear and binary) and `SortUtils` (bubble, selection, insertion).
+
+---
+
+## Key files
+
+| File | Role |
 |---|---|
-| `model/Animal.java` | Classe abstraite - attributs communs, interface `Adoptable` |
-| `service/Shelter.java` | Gestionnaire principal - collections, logique métier |
-| `service/SearchUtils.java` / `SortUtils.java` | Algorithmes de recherche et de tri |
-| `exceptions/ShelterException.java` | Exception personnalisée |
+| `model/Animal.java` | Abstract class - shared attributes, `Adoptable` interface |
+| `service/Shelter.java` | Main manager - collections, business logic |
+| `service/SearchUtils.java` / `SortUtils.java` | Search and sorting algorithms |
+| `exceptions/ShelterException.java` | Custom exception |
 
 ---
 
-## Utilisation
+## Usage
 
 ```bash
-# Compiler
+# Compile
 javac -d . model/*.java interfaces/*.java exceptions/*.java service/*.java ui/*.java Main.java
 
-# Exécuter
+# Run
 java Main
 ```
 
-Exemple d'interaction :
+Sample interaction:
 
 ```
-Type d'animal : 1. Chien  2. Chat  3. Oiseau
-Votre choix : 1
-Nom : Rex | Âge : 2 | Race : Labrador | Dressé : oui
-✓ Animal ajouté : Rex (ID: 6)
+Animal type: 1. Dog  2. Cat  3. Bird
+Your choice: 1
+Name: Rex | Age: 2 | Breed: Labrador | Trained: yes
+✓ Animal added: Rex (ID: 6)
 ```
 
 ---
@@ -53,17 +53,17 @@ Nom : Rex | Âge : 2 | Race : Labrador | Dressé : oui
 ## Technologies
 
 - Java 17
-- POO : héritage, polymorphisme, composition, interfaces
-- Collections Java (`ArrayList`)
-- Algorithmes de recherche et de tri
-- Exceptions personnalisées, récursion
+- OOP: inheritance, polymorphism, composition, interfaces
+- Java collections (`ArrayList`)
+- Search and sorting algorithms
+- Custom exceptions, recursion
 
 ---
 
-## Ce que j'ai appris
+## What I learned
 
-**La différence entre héritage et composition n'est pas qu'un détail de syntaxe.** Associer `MedicalRecord` à `Animal` par composition m'a obligée à réfléchir à la sémantique : un animal *a* un dossier médical, il n'*est* pas un dossier médical. Cette distinction, que j'avais lue en cours, n'est devenue claire qu'en l'appliquant.
+**The difference between inheritance and composition is not just a syntax detail.** Linking `MedicalRecord` to `Animal` through composition made me think carefully about semantics: an animal *has* a medical record, it is not a medical record. This distinction only became clear to me once I had to apply it.
 
-**Une interface, c'est un contrat.** Implémenter `Adoptable` dans `Animal` m'a montré pourquoi les interfaces existent : elles permettent de garantir qu'un objet dispose de certaines méthodes sans contraindre sa hiérarchie. Si demain on ajoute une classe `Toy` adoptable, elle n'a pas à hériter d'`Animal`.
+**An interface is a contract.** Implementing `Adoptable` in `Animal` showed me why interfaces exist: they guarantee that an object exposes certain methods without constraining its class hierarchy. If a `Toy` class needed to be adoptable tomorrow, it would not have to inherit from `Animal`.
 
-**Comprendre un algorithme de tri, c'est comprendre ses compromis.** Implémenter les trois algorithmes côte à côte m'a permis de voir concrètement leurs différences en termes de comparaisons et d'échanges - ce que les notations O() résument mais ne montrent pas.
+**Understanding a sorting algorithm means understanding its trade-offs.** Implementing all three algorithms side by side let me see their differences in terms of comparisons and swaps - something that Big O notation summarizes but does not show.
